@@ -3,22 +3,25 @@ import { useState } from "react";
 const App = () => {
   const [selectedIdx, setSelectedIdx] = useState(0);
 
-const = handlePrev = () => {
-  setSelectedIdx(setSelectedIdx - 1)
-}
+  const handlePrev = () => {
+    setSelectedIdx(selectedIdx - 1);
+  };
+
+  const handleNext = () => {
+    setSelectedIdx(selectedIdx + 1);
+  };
 
   return (
     <div>
       <div>
-        <button>Prev</button>
-        <button>Next</button>
+        <button onClick={handlePrev}>Prev</button>
+        <button onClick={handleNext}>Next</button>
       </div>
       <p>0/0</p>
       <article>
         <h1>Topic</h1>
         <p>Text</p>
       </article>
-      {console.log(12)}
     </div>
   );
 };
