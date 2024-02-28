@@ -4,7 +4,7 @@ const App = () => {
   const [selectedIdx, setSelectedIdx] = useState(0);
 
 const = handlePrev = () => {
-  
+  setSelectedIdx(setSelectedIdx - 1)
 }
 
   return (
