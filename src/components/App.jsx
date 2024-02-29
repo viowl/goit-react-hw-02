@@ -17,7 +17,7 @@ const App = () => {
         <button onClick={handlePrev}>Prev</button>
         <button onClick={handleNext}>Next</button>
       </div>
-      <p>0/0</p>
+      <p>{selectedIdx}/0</p>
       <article>
         <h1>Topic</h1>
         <p>Text</p>
