@@ -21,11 +21,18 @@ const App = () => {
   return (
     <div>
       <div>
-        <button onClick={handlePrev}>Prev</button>
-        <button onClick={handleNext}>Next</button>
+        <button disabled={selectedIdx === 0} onClick={handlePrev}>
+          Prev
+        </button>
+        <button
+          disabled={selectedIdx === articles.length - 1}
+          onClick={handleNext}
+        >
+          Next
+        </button>
       </div>
       <p>
-        {selectedIdx}/{articles.length}
+        {selectedIdx + 1}/{articles.length}
       </p>
       <article>
         <h1>{visibleArticle.topic}</h1>
