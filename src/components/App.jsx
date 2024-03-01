@@ -1,6 +1,6 @@
 import { useState } from "react";
 import articles from "../data/articles.json";
-
+import Controls from "./Controls/Controls";
 console.log(articles);
 
 const App = () => {
@@ -24,14 +24,12 @@ const App = () => {
 
   return (
     <div>
-      <div>
-        <button disabled={isFirst} onClick={handlePrev}>
-          Prev
-        </button>
-        <button disabled={isLast} onClick={handleNext}>
-          Next
-        </button>
-      </div>
+      <Controls
+        first={isFirst}
+        last={isLast}
+        onPrev={handlePrev}
+        onNext={handleNext}
+      />
       <p>
         {current}/{total}
       </p>
