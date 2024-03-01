@@ -15,24 +15,25 @@ const App = () => {
   };
 
   const visibleArticle = articles[selectedIdx];
+  const isFirst = selectedIdx === 0;
+  const isLast = selectedIdx === articles.length - 1;
+  const current = selectedIdx + 1;
+  const total = articles.length;
 
   console.log(visibleArticle);
 
   return (
     <div>
       <div>
-        <button disabled={selectedIdx === 0} onClick={handlePrev}>
+        <button disabled={isFirst} onClick={handlePrev}>
           Prev
         </button>
-        <button
-          disabled={selectedIdx === articles.length - 1}
-          onClick={handleNext}
-        >
+        <button disabled={isLast} onClick={handleNext}>
           Next
         </button>
       </div>
       <p>
-        {selectedIdx + 1}/{articles.length}
+        {current}/{total}
       </p>
       <article>
         <h1>{visibleArticle.topic}</h1>
