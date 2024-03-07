@@ -11,6 +11,16 @@ const App = () => {
     bad: 0,
   };
 
+  const getInitialRating = () => {
+    const savedRating = window.localStorage.getItem("rating");
+    return savedRating !== null ? JSON.parse(savedRating) : defaultRating;
+  };
+
+  const [clicks, setClicks] = useState(getInitialRating());
+
+  const handleClick = () => {
+    setClicks(clicks + 1);
+  };
   return (
     <div>
       <Description />

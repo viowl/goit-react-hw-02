@@ -1,4 +1,4 @@
-const Options = () => {
+const Options = ({ cl, hc }) => {
   return (
     <div>
       <ul>
