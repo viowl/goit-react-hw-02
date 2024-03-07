@@ -1,7 +1,6 @@
 import { useState } from "react";
 import articles from "../data/articles.json";
 import Controls from "./Controls/Controls";
-console.log(articles);
 
 const App = () => {
   const [selectedIdx, setSelectedIdx] = useState(0);
