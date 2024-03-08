@@ -13,19 +13,37 @@ const App = () => {
 
   const getInitialRating = () => {
     const savedRating = window.localStorage.getItem("rating");
-    return savedRating !== null ? JSON.parse(savedRating) : defaultRating;
+    return savedRating !== null ? JSON.parse(savedRating) : 0;
   };
 
-  const [clicks, setClicks] = useState(getInitialRating());
+  const [good, setGood] = useState(0);
+  const [neutral, setNeutral] = useState(0);
+  const [bad, setBad] = useState(0);
 
-  const handleClick = () => {
-    setClicks(clicks + 1);
+  const handleGood = () => {
+    setGood(good + 1);
+    console.log(good + 1);
   };
+
+  const handleNeutral = () => {
+    setNeutral(neutral + 1);
+    console.log(neutral + 1);
+  };
+
+  const handleBad = () => {
+    setBad(bad + 1);
+    console.log(bad + 1);
+  };
+
   return (
     <div>
       <Description />
-      <Options />
-      <Feedback />
+      <Options
+        onGood={handleGood}
+        onNeutral={handleNeutral}
+        onBad={handleBad}
+      />
+      <Feedback good={good} neutral={neutral} bad={bad} />
     </div>
   );
 };
