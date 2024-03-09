@@ -16,34 +16,25 @@ const App = () => {
     return savedRating !== null ? JSON.parse(savedRating) : 0;
   };
 
-  const [good, setGood] = useState(0);
-  const [neutral, setNeutral] = useState(0);
-  const [bad, setBad] = useState(0);
+  const [clicks, setClicks] = useState({
+    good: 0,
+    neutral: 0,
+    bad: 0,
+  });
 
-  const handleGood = () => {
-    setGood(good + 1);
-    console.log(good + 1);
-  };
-
-  const handleNeutral = () => {
-    setNeutral(neutral + 1);
-    console.log(neutral + 1);
-  };
-
-  const handleBad = () => {
-    setBad(bad + 1);
-    console.log(bad + 1);
+  const handleClicks = (key) => {
+    setClicks({ ...clicks, [key]: clicks[key] + 1 });
   };
 
   return (
     <div>
       <Description />
       <Options
-        onGood={handleGood}
-        onNeutral={handleNeutral}
-        onBad={handleBad}
+        onGood={() => handleClicks("good")}
+        onNeutral={() => handleClicks("neutral")}
+        onBad={() => handleClicks("bad")}
       />
-      <Feedback good={good} neutral={neutral} bad={bad} />
+      <Feedback good={clicks.good} neutral={clicks.neutral} bad={clicks.bad} />
     </div>
   );
 };
