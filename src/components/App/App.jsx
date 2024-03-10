@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import Description from "../Description/Description.jsx";
 import Options from "../Options/Options.jsx";
@@ -16,16 +16,15 @@ const App = () => {
     return savedRating !== null ? JSON.parse(savedRating) : 0;
   };
 
-  const [clicks, setClicks] = useState({
-    good: 0,
-    neutral: 0,
-    bad: 0,
-  });
+  const [clicks, setClicks] = useState(getInitialRating());
 
   const handleClicks = (key) => {
     setClicks({ ...clicks, [key]: clicks[key] + 1 });
   };
 
+  useEffect(() => {
+    window.localStorage.setItem("rating", JSON.stringify(clicks));
+  });
   return (
     <div>
       <Description />
