@@ -1,4 +1,4 @@
-const Options = ({ onGood, onNeutral, onBad }) => {
+const Options = ({ onGood, onNeutral, onBad, onReset, isAnyFeedback }) => {
   return (
     <div>
       <ul>
@@ -11,9 +11,11 @@ const Options = ({ onGood, onNeutral, onBad }) => {
         <li>
           <button onClick={onBad}>Bad</button>
         </li>
-        <li>
-          <button>Reset</button>
-        </li>
+        {isAnyFeedback && (
+          <li>
+            <button onClick={onReset}>Reset</button>
+          </li>
+        )}
       </ul>
     </div>
   );

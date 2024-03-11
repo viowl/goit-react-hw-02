@@ -1,6 +1,4 @@
-const Feedback = ({ good, neutral, bad }) => {
-  const total = good + neutral + bad;
-  const percent = (good / total) * 100;
+const Feedback = ({ good, neutral, bad, total, percent }) => {
   return (
     <div>
       <ul>
@@ -8,7 +6,7 @@ const Feedback = ({ good, neutral, bad }) => {
         <li>Neutral: {neutral}</li>
         <li>Bad: {bad}</li>
         <li>Total: {total}</li>
-        <li>Positive: {percent.toFixed(0)}%</li>
+        <li>Positive: {percent}%</li>
       </ul>
     </div>
   );
