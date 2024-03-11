@@ -1,7 +1,9 @@
+import css from "./Options.module.css";
+
 const Options = ({ onGood, onNeutral, onBad, onReset, isAnyFeedback }) => {
   return (
     <div>
-      <ul>
+      <ul className={css.list}>
         <li>
           <button onClick={onGood}>Good</button>
         </li>
